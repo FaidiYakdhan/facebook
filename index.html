@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Facebook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+
+        #header {
+            background-color: #3b5998;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #profile {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #profile img {
+            max-width: 100%;
+            border-radius: 50%;
+        }
+
+        #user-info {
+            text-align: center;
+        }
+
+        #user-info h1 {
+            margin: 10px 0;
+        }
+
+        #user-info p {
+            color: #555;
+        }
+
+        #posts {
+            margin-top: 20px;
+        }
+
+        .post {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .post p {
+            color: #333;
+        }
+
+ #nav {
+            background-color: #4267B2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        #post-form {
+            margin-top: 20px;
+        }
+
+        #post-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #post-form button {
+            background-color: #4267B2;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+</body>
+
+    <div id="header">
+        <h1>Profil Facebook</h1>
+    </div>
+
+    <div id="nav">
+        <a href="#">Accueil</a>
+        <a href="#">Amis</a>
+        <a href="#">Photos</a>
+        <a href="#">À propos</a>
+    </div>
+
+    <div id="profile">
+        <!-- ... (contenu précédent) ... -->
+
+        <div id="post-form">
+            <textarea placeholder="Exprimez-vous..."></textarea>
+            <button onclick="publishPost()">Publier</button>
+        </div>
+
+        <div id="posts">
+            <!-- ... (publications précédentes) ... -->
+        </div>
+    </div>
+
+    <script>
+        function publishPost() {
+            var postText = document.querySelector('#post-form textarea').value;
+
+            if (postText.trim() !== '') {
+                var postContainer = document.getElementById('posts');
+                var newPost = document.createElement('div');
+                newPost.className = 'post';
+                newPost.innerHTML = '<p>' + postText + '</p>';
+                postContainer.insertBefore(newPost, postContainer.firstChild);
+
+                // Efface le texte du formulaire après la publication
+                document.querySelector('#post-form textarea').value = '';
+            }
+        }
+    </script>
+
+</body>
+</html>
